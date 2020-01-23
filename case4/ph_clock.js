@@ -1,3 +1,4 @@
+"use strict";
 /*
    New Perspectives on HTML5 and CSS3, 7th Edition
    Tutorial 9
@@ -11,6 +12,13 @@
 
 */
 
+var minsLeft = 30;
+
+var secsLeft = 0;
+
+var timeLeft = minsLeft * 60 + secsLeft;
+
+var clockID = setInterval("countdown()",1000);
 
 
 
@@ -18,6 +26,27 @@
 
 /* ------------------------------------------------- */
 
+function countdown(){
+   minsLeft = Math.floor(timeLeft / 60);
+   
+   secsLeft = timeLeft - 60 * minsLeft;
+
+   var minsString = addLeadingZero(minsLeft);
+
+   var secsString = addLeadingZero(secsLeft);
+
+   document.getElementById("minutes").textContent = minsString;
+   document.getElementById("seconds").textContent = secsString;
+
+
+   checkTimer();
+   timeLeft --;
+}
+
+function stopClock(){
+   document.getElementById("TimeHead").insertAdjacentHTML('beforeEnd', "<br />(ORDER EXPIRED)");
+   clearInterval(clockID);
+}
 
 /* The checkTimer() function tests whether there is any time left to make the
    ticket order. If the time left is 0, the stopClock() function is run;

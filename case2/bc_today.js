@@ -1,4 +1,4 @@
-
+"use strict";
 /*
    New Perspectives on HTML5 and CSS3, 7th Edition
    Tutorial 9
@@ -14,6 +14,13 @@
 
 */
 
+
+var thisDate = new Date("October 12, 2018");
+var dateString = thisDate.toLocaleString();
+var dateHTML = "<h2>" + dateString + "</h2>";
+var thisDay = thisDate.getDay();
+var eventHTML = getEvent(thisDay);
+document.getElementById("unionToday").insertAdjacentHTML('beforeEnd', dateHTML + eventHTML);
 
 
 function getEvent(day) {
@@ -174,3 +181,5 @@ function getEvent(day) {
    
    return eventHTML
 }
+
+

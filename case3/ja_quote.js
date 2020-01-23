@@ -1,3 +1,4 @@
+"use strict";
 /*
    New Perspectives on HTML5 and CSS3, 7th Edition
    Tutorial 9
@@ -13,6 +14,17 @@
 
 */
 
+
+var randomQ = randomInt (0,10);
+
+function randomInt(lowest, size){
+   var randy = Math.floor(Math.random()* size + lowest);
+   return randy;
+}
+var quoteElem = document.getElementsByTagName("quote")[0];
+
+
+quoteElem.innerHTML = getQuote(randomQ);
 
 function getQuote(n) {
    var quotes = [
